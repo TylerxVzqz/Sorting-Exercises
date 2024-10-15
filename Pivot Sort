@@ -1,0 +1,24 @@
+function pivot(arr, start = 0, end = arr.length - 1) {
+  let pivotValue = arr[start];
+  let partitionIndex = start;
+
+  for (let i = start + 1; i <= end; i++) {
+    if (arr[i] < pivotValue) {
+      partitionIndex++;
+      [arr[partitionIndex], arr[i]] = [arr[i], arr[partitionIndex]];
+    }
+  }
+
+  [arr[start], arr[partitionIndex]] = [arr[partitionIndex], arr[start]];
+
+  return partitionIndex;
+}
+
+let arr1 = [5, 4, 9, 10, 2, 20, 8, 7, 3];
+let arr2 = [8, 4, 2, 5, 0, 10, 11, 12, 13, 16];
+
+console.log(pivot(arr1));
+console.log(arr1);        
+
+console.log(pivot(arr2));
+console.log(arr2);       
